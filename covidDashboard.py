@@ -9,7 +9,7 @@ import streamlit as st
 data_path = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv'
 
 st.markdown(
-'''# COVID-19 Dashboard
+'''# Interactive COVID Dashboard
 This is an app displaying United States COVID-19 data.
 Data provided by [The New York Times](https://github.com/nytimes/covid-19-data/blob/master/us-states.csv).
 ''')

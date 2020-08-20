@@ -11,5 +11,8 @@ Description: Dashboard developed to highlight where COVID-19
                 so it will dynamically update as more data 
                 becomes available.
 
+References: NY Times US State COVID-19 Data
+            https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv
+
 To run:
     streamlit run covidDashboard.py

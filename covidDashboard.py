@@ -27,7 +27,9 @@ months = {
     'May': [1,31],
     'June': [1,30],
     'July': [1,31],
-    'August': [1,31]
+    'August': [1,31],
+    'September': [1,30],
+    'October': [1,31]
 }
 
 def user_input_features():

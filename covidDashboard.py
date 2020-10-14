@@ -33,7 +33,7 @@ months = {
 }
 
 def user_input_features():
-    month = st.sidebar.selectbox('Month',('January','February','March', 'April', 'May', 'June', 'July', 'August'))
+    month = st.sidebar.selectbox('Month',('January','February','March', 'April', 'May', 'June', 'July', 'August', 'October'))
     searchType = st.sidebar.selectbox('Choose Data to Display', ('cases', 'deaths'))
     days = months[month]
     day = st.sidebar.slider('Day to look at',days[0],days[1],21)

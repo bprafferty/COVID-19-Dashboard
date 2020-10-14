@@ -38,7 +38,7 @@ def user_input_features():
     days = months[month]
     day = st.sidebar.slider('Day to look at',days[0],days[1],21)
 
-    st.subheader('Total US COVID-19 %s as of %s %i, 2020' % (searchType, month, day))
+    st.subheader('Map Displaying ***Total US COVID-19 %s*** as of %s %i, 2020' % (searchType, month, day))
     
     data = {'Month': month,
             'Day': day, 
@@ -55,7 +55,8 @@ month_conv = {
     'June': '06',
     'July': '07',
     'August': '08',
-    'October': '09'
+    'September': '09',
+    'October': '10'
 }
 
 date_string = ''
@@ -70,7 +71,7 @@ for index, row in input_df.iterrows():
     type_string = row[2]
     if day < 10:
         day = '0' + str(day)
-        date_string = '2020-' + month_conv[row[0]] + '-' + day
+        date_string = '2020-' + month_conv[row[0]] + '-' + str(day)
     else:
         date_string = '2020-' + month_conv[row[0]] + '-' + str(day)
     
@@ -196,13 +197,15 @@ latest = df.tail(n=55)
 total_cases = latest.cases.sum()
 total_deaths = latest.deaths.sum()
 
+death_rate = ((total_deaths/total_cases) * 100)
+
 if type_string == 'cases':
     p = figure(x_range=states, plot_width=700, plot_height=500, title='Breakdown of Total US COVID-19 Cases by State. Displaying total as of {} {}, 2020'.format(save_month, save_day), toolbar_location=None, tools='')
     p.vbar(x=states, top=cases, width=0.9)
     p.xaxis.major_label_orientation = 'vertical'
     st.write(p)
 
-    st.markdown('\t***Total US COVID-19 cases since January 21st, 2020: %i***' % (total_cases))
+    st.subheader('\t***Total US COVID-19 Infections*** since January 21st, 2020: ***%i***' % (total_cases))
 
 else:
     p = figure(x_range=states, plot_width=700, plot_height=500, title='Breakdown of Total US COVID-19 Deaths by State. Displaying total as of {} {}, 2020'.format(save_month, save_day), toolbar_location=None, tools='')
@@ -210,4 +213,8 @@ else:
     p.xaxis.major_label_orientation = 'vertical'
     st.write(p)
 
-    st.markdown('\t***Total US COVID-19 deaths since January 21st, 2020: %i***' % (total_deaths))
+    st.subheader('\t***Total US COVID-19 Deaths*** since January 21st, 2020: ***%i***' % (total_deaths))
+
+
+st.subheader('***US COVID-19 Deathrate*** ((deaths/infections) * 100): ***%f***' % (death_rate))
+    

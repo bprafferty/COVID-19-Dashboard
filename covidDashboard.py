@@ -54,7 +54,8 @@ month_conv = {
     'May': '05',
     'June': '06',
     'July': '07',
-    'August': '08'
+    'August': '08',
+    'October': '09'
 }
 
 date_string = ''

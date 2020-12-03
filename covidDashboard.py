@@ -35,10 +35,10 @@ months = {
 }
 
 def user_input_features():
-    month = st.sidebar.selectbox('Month',('January','February','March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'))
+    month = st.sidebar.selectbox('Month',('January','February','March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'))
     searchType = st.sidebar.selectbox('Choose Data to Display', ('cases', 'deaths'))
     days = months[month]
-    day = st.sidebar.slider('Day to look at',days[0],days[1],21)
+    day = st.sidebar.slider('Day to look at',days[0],days[1])
 
     st.subheader('Map Displaying ***Total US COVID-19 %s*** as of %s %i, 2020' % (searchType, month, day))
     
@@ -58,7 +58,9 @@ month_conv = {
     'July': '07',
     'August': '08',
     'September': '09',
-    'October': '10'
+    'October': '10',
+    'November': '11',
+    'December': '12'
 }
 
 date_string = ''
